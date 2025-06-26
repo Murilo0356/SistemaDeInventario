@@ -1,0 +1,35 @@
+package Model;
+import enums.Categoria;
+
+public class ItemAdministrativo <a> extends ItemInventario {
+
+	private String setorResponsavel;
+	private String nomeResponsavel;
+
+	public ItemAdministrativo(String nome, double valorUnitario, boolean ativo, Object identificador,
+			Categoria categoria, String setorResponsavel, String nomeResponsavel) {
+		super(nome, valorUnitario, ativo, identificador, categoria);
+		
+		this.nomeResponsavel = nomeResponsavel;
+		this.setorResponsavel = setorResponsavel;
+	}
+	
+	
+	@Override
+	public double calcularValorTotal(int quantidade) {
+		double valorTotal = quantidade * getValorUnitario() ;
+		return quantidade;
+	}
+
+	@Override
+	public String gerarDescricaoDetalhada() {
+		
+		 return "Nome: " + super.getNome() +
+		           "\nSetor responsavel: " + this.setorResponsavel +
+		           "\nNome responsavel: " + this.nomeResponsavel +
+		           "\nCategoria: " + super.getCategoria() +
+		           "\nValor: " + super.getValorUnitario() +
+		           "\nAtivo: " + super.isAtivo();
+		}
+	
+}
