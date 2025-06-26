@@ -1,0 +1,37 @@
+package Model;
+import enums.Categoria;
+public class ItemEscritorio <I> extends ItemInventario {
+
+	private String material;
+	private int quantidade;
+	
+	public ItemEscritorio (String nome, double valorUnitario, boolean ativo, I identificador, Categoria categoria,
+			String material, int quantidade) {
+		super(nome, valorUnitario, ativo, identificador, categoria);
+		
+		this.material = material;
+		this.quantidade = quantidade;
+		
+	}
+	
+	
+	@Override
+	public double calcularValorTotal(int quantidade) {
+		double valorTotal = quantidade * getValorUnitario() ;
+		return quantidade;
+	}
+	
+
+	@Override
+	public String gerarDescricaoDetalhada() {
+		
+		 return "Nome: " + super.getNome() +
+		           "\nMaterial: " + this.material +
+		           "\nQuantidade: " + this.quantidade+
+		           "\nCategoria: " + super.getCategoria() +
+		           "\nValor: " + super.getValorUnitario() +
+		           "\nAtivo: " + super.isAtivo();
+		}
+	
+	
+}
