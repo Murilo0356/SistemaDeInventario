@@ -1,0 +1,71 @@
+package Model;
+
+import enums.Categoria;
+public abstract class ItemInventario <T> {
+
+	private String nome;
+	private double valorUnitario;
+	private boolean ativo;
+	private T identificador ;
+	private Categoria categoria;
+	public ItemInventario(String nome, double valorUnitario, boolean ativo, T identificador, Categoria categoria) {
+		this.nome = nome;
+		this.valorUnitario = valorUnitario;
+		this.ativo = ativo;
+		this.identificador = identificador;
+		this.categoria = categoria;
+	}
+	public ItemInventario() {}
+	
+	// ABSTRACTS
+	public abstract double calcularValorTotal(int quantidade);
+	public abstract String gerarDescricaoDetalhada();
+	
+	//CONCRETOS
+	
+	public void ativar() {
+		this.ativo = true;
+	}
+	
+	public void desativar() {
+		this.ativo = false;
+	}
+	
+	public boolean isAtivo() {	
+		return ativo;
+	}
+	
+	// GETTERS E SETTERS
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public double getValorUnitario() {
+		return valorUnitario;
+	}
+	public void setValorUnitario(double valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+	public T getIdentificador() {
+		return identificador;
+	}
+	public void setIdentificador(T identificador) {
+		this.identificador = identificador;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	
+	
+	
+}
